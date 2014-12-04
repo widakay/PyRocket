@@ -1,0 +1,45 @@
+$def with (title, body)
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="https://pyrocket.objects.cdn.dream.io/favicon.ico" rel="icon" type="image/x-icon" />
+        
+		<title>$title</title>
+		
+		<link href="https://pyrocket.objects.cdn.dream.io/css/animate.css" rel="stylesheet">
+		<link href="https://pyrocket.objects.cdn.dream.io/css/font-awesome.css" rel="stylesheet">
+		<link href="https://pyrocket.objects.cdn.dream.io/css/dropzone.css" rel="stylesheet">
+		<link href="https://pyrocket.objects.cdn.dream.io/css/main.css" rel="stylesheet">
+		<link href="https://pyrocket.objects.cdn.dream.io/css/dropzoneCustom.css" rel="stylesheet">
+		
+		<link href='http://fonts.googleapis.com/css?family=Josefin+Sans:300,300italic,700,700italic|Muli:300,400,300italic,400italic|Open+Sans:700' rel='stylesheet' type='text/css'>
+        <link href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:700" rel='stylesheet' type='text/css'>
+        
+		<script src="https://pyrocket.objects.cdn.dream.io/js/dropzone.js"></script>
+        <script src="https://pyrocket.objects.cdn.dream.io/js/jquery.min.js"></script>
+        <script src="https://pyrocket.objects.cdn.dream.io/js/main.js" data-no-instant></script>
+        <script src="https://pyrocket.objects.cdn.dream.io/js/instantclick.min.js" data-no-instant></script>
+        <script data-no-instant>InstantClick.init();</script>
+	</head>
+    <body>
+        <!-- for background <div class="body-bg"></div> -->
+		<div class="container">
+			<div class="header resp">
+				<a href="/" class="noLinkFormat">PyRocket: Python Packager</a>
+			</div>
+			<img src="https://pyrocket.objects.cdn.dream.io/rocket.png" id="rocket">
+
+			<div class="body">
+			$:body
+			</div>
+		<div class="footer resp">
+			&copy; 2014
+			<a href="http://yoerik.com/rickroll" target="_blank" class="fancyLink">Conner</a>,
+			<a href="http://yoerik.com/?src=PyConverter" target="_blank" class="fancyLink">Erik</a>, 
+			<a href="#" onclick="alert('Matthew is always watching. He doesn\'t have a personal web presence yet, but he can still stare at you when you sleep.');" class="fancyLink">Matthew</a>,
+			and <a href="http://kittenwar.com/" target="_blank" class="fancyLink">Yoni</a>. 
+			&nbsp;Background by <a href="http://cargocollective.com/alexarhoads" target="_blank" class="fancyLink">Alexa</a>.
+		</div>
+		
+	</body>
+</html>
