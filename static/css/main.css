@@ -1,0 +1,295 @@
+body {
+    font-family: 'Muli', sans-serif;
+    background-image: url('https://pyrocket.objects.cdn.dream.io/background.png');
+    background-repeat: repeat-y;
+    background-position: top left;
+    background-attachment: fixed;
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    z-index: 1000;
+}
+
+.bg {
+}
+
+.upload {
+    font-weight: 300;
+}
+
+#projects {
+    padding: 10%;
+}
+.mini-project {
+    border: 1px solid grey;
+    border-radius: 10px;
+    width: 25%;
+    height: 50%;
+    float: left;
+    margin: 10px;
+    padding: 10px;
+}
+
+.header {
+    margin-left: auto;
+    margin-right: auto;
+    width: 47%;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 2.75em;
+    padding: 1%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    background-color: rgba(0, 0, 0, 0.25);
+    
+    border-radius: 10px;
+    text-decoration: none;
+    
+    transition: color 1s, text-shadow 1s;
+    -webkit-transition: color 1s text-shadow 1s;
+}
+
+.header:hover {
+	color:#FFFFFF;
+	text-shadow: 0 0 5px #fff, 0 0 35px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 75px #fff;
+}
+
+.tagline {
+	font-family: Muli;
+}
+
+.noLinkFormat {
+    text-decoration: none;
+    color: white;
+}
+
+
+.centerDiv {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    -ms-filter: none;
+	filter: none;
+	-webkit-transition: opacity 0.3s ease-in-out;
+	-moz-transition: opacity 0.3s ease-in-out;
+	-o-transition: opacity 0.3s ease-in-out;
+	-ms-transition: opacity 0.3s ease-in-out;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.body {
+	width: 70%;
+    background-color: rgba(255, 255, 255, 0.5);
+	margin-right: auto;
+	margin-left: auto;
+    /*
+    padding-left: 10%;
+    padding-right: 10%;
+    */
+	border-radius: 10px;
+	font-family: 'Muli', sans-serif;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 5%;
+    margin-bottom: 7%;
+
+}
+
+.body-bg {
+    /*position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    z-index: 99;
+    background-position: center -200px;
+    background-image: url('https://pyrocket.objects.cdn.dream.io/background.png');
+    background-repeat: repeat-y;
+    background-position: top left;
+    background-attachment: fixed;
+    background-size: auto;
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    filter: url('/media/blur.svg#blur'); /* for Firefox */
+}
+
+.footer {
+	background-color: rgba(0, 0, 0, 0.2);
+	padding-top: 0.5%;
+	padding-bottom: 0.5%;
+	padding-left: 1%;
+	padding-right: 1%;
+	position: fixed;
+	bottom: 0;
+	width: 98%;
+
+	color: #555555;
+	text-align: right;
+}
+
+label {
+	font-family: 'Muli',sans-serif;
+	padding-top: 10px;
+}
+
+.button {
+    position: relative;
+    content: "\f0ee"; 
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+/*--adjust as necessary--*/
+    color: #000000;
+    font-size: 1.125em;
+    padding-right: 0.5em;
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+ 
+/*replace the content value with the 
+corresponding value from the list below*/
+ 
+.grey {
+    color: #555555;
+}
+
+.hovercolor:hover {
+	color: black;
+}
+/*
+.coolbutton {	
+    position: center;
+    color: rgba(255,255,255,1);
+    text-decoration: none;
+    background-color: rgb(229,126,68);
+    font-family: 'Josefin Sans';
+    font-weight: 300;
+    font-size: 3em;
+    display: block;
+    padding: 4px;
+    padding-top: 8px;
+    padding-bottom: 2px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    -moz-box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    box-shadow: 0px 9px 0px rgb(238,105,30), 0px 9px 25px rgba(0,0,0,.7);
+    border: none;
+    margin: 5% auto;
+    text-align: center;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    
+    -webkit-transition: all .1s ease;
+    -moz-transition: all .1s ease;
+    -ms-transition: all .1s ease;
+    -o-transition: all .1s ease;
+    transition: all .1s ease;
+
+    cursor: pointer;
+    outline: none;
+}
+
+.coolbutton:active {
+    -webkit-box-shadow: 0px 3px 0px rgb(238,105,30), 0px 3px 6px rgba(0,0,0,.9);
+    -moz-box-shadow: 0px 3px 0px rgb(236,102,26), 0px 3px 6px rgba(0,0,0,.9);
+    box-shadow: 0px 3px 0px rgbargb(238,105,30), 0px 3px 6px rgba(0,0,0,.9);
+    position: relative;
+    top: 6px;
+}
+*/
+.coolbutton {   
+    position: center;
+    color: rgba(255,255,255,1);
+    text-decoration: none;
+    /*background of the website is #15294e, might want to try that*/
+    background-color: rgb(40,54,89);
+    
+    font-family: 'Open Sans',sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-transform: uppercase;
+    font-size: 3em;
+    display: block;
+
+    padding-bottom: 2px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    border: none;
+    margin: 5% auto;
+    text-align: center;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    
+    -webkit-transition: all .1s ease;
+    -moz-transition: all .1s ease;
+    -ms-transition: all .1s ease;
+    -o-transition: all .1s ease;
+    transition: all .1s ease;
+
+    cursor: pointer;
+    outline: none;
+}
+
+.coolbutton:hover {
+    background-color: rgba(40,54,89,0.7);
+}
+.coolbutton:active {
+    -webkit-transition: color 75ms ease-out,background-color 75ms ease-out;
+    -moz-transition: color 75ms ease-out,background-color 75ms ease-out;
+    -o-transition: color 75ms ease-out,background-color 75ms ease-out;
+    transition: color 75ms ease-out,background-color 75ms ease-out;
+}.fancyWhite {
+	color:#FFFFFF;
+	text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 70px #fff, 0 0 80px #fff, 0 0 100px #fff, 0 0 150px #fff;
+}
+
+.fancyRadio {
+	display: none;
+}
+
+.fancyRadio+label {
+    color: #CCCCCC;
+    
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    
+    cursor: pointer;
+}
+
+.fancyRadio:checked+label {
+    color: black;
+}
+
+.fancyRadio+label:hover {
+	color: #BBBBBB;
+}
+
+.fancyRadio:checked+label:hover {
+	color: #333333;
+}
+
+.fancyLink {
+    text-decoration: none;
+    color: inherit;
+}
+.fancyLink:hover {
+    color: white;
+}
+
+#rocket {
+	width: 17%;
+	position: absolute;
+	top:11%;
+	left:7%;
+}

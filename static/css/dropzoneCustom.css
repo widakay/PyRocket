@@ -1,0 +1,45 @@
+.dropzone {
+	min-height: 100%;
+	padding: 23px;
+}
+
+.fa-cloud-upload {
+	font-size: 3em;
+}
+
+.dropzone .dz-default.dz-message {
+  -ms-filter: initial;
+  filter: initial;
+  -webkit-transition: initial;
+  -moz-transition: initial;
+  -o-transition: initial;
+  -ms-transition: initial;
+  transition: initial;
+  background-image: initial;
+  background-repeat: initial;
+  background-position: initial;
+  position: relative;
+  width: initial;
+  height: initial;
+  margin-left: initial;
+  margin-top: initial;
+  top: initial;
+  left: initial;
+}
+
+.dropzoneFormat {
+	font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    font-size: 3.125em;
+    
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.dropzone.dz-clickable * {
+	cursor: pointer;
+}
