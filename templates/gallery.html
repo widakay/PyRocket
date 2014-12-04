@@ -1,29 +1,5 @@
 $def with (projects)
-<h1 class="tagline resp">
-	<span class="fa fa-angle-right"></span> Package your Python code at the speed of light
-</h1>
-
-<div class="centerDiv">
-    <form action="/upload" class="dropzone dropzoneFormat resp">
-		Drag or click to <span class="upload">Upload</span>
-		<br>
-		<span class="fa fa-cloud-upload resp"></span>
-		<br>
-		<div class="fallback">
-			<input name="file" type="file" multiple>
-                </div>
-    </form>
+<div id="projects">
+$for project in projects:
+    <div class="mini-project" id="t$project.id"><a href="/projects/$project.id">$project.name</a><br>$project.creator</div>
 </div>
-
-<form name="codeUploader" action="/finalize" method="post" enctype="multipart/form-data" class="resp">
-	<p>Select the system you want to package your code for:</p>
-	<input type="checkbox" name="os" class="fancyRadio" value="Mac" id="Mac"><label for="Mac"><span class="fa fa-apple"></span>Mac</label>
-        <input type="checkbox" name="os" class="fancyRadio" value="Windows" id="Windows"><label for="Windows"><span class="fa fa-windows"></span>Windows</label>
-            <input type="checkbox" name="os" class="fancyRadio" value="Linux" id="Linux"><label for="Linux"><span class="fa fa-linux"></span>Linux</label>
-                
-                <p>Select your python version:</p>
-                <input type="radio" name="version" class="fancyRadio" value="2.7" id="2.7"><label for="2.7">2.7</label>
-                    <input type="radio" name="version" class="fancyRadio" value="3.4" id="3.4"><label for="3.4">3.4</label>
-                        
-                        <input type='submit' name='submit' value='Convert' alt='CONVERT NOW!' class='coolbutton resp'>
-</form>

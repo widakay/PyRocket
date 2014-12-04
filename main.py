@@ -11,8 +11,7 @@ secret_key = credentials.secret_key
 
 render = web.template.render('templates/')
 
-
-projId = 1
+web.config.debug = True
 
         
 urls = (
@@ -21,6 +20,7 @@ urls = (
     '/gallery', 'gallery',
     '/finalize', 'finalize',
     '/project/(.*)', 'project',
+    '/static/(.*)', 'static',
     '/(.*)', 'index'
 )
 app = web.application(urls, globals())
@@ -28,7 +28,7 @@ app = web.application(urls, globals())
 
 db = web.database(dbn='mysql', db=credentials.mysql_database, user=credentials.mysql_username, pw=credentials.mysql_password)
 store = web.session.DBStore(db, 'sessions')
-session = web.session.Session(app, store, initializer={'count': 0})
+session = web.session.Session(app, store, initializer={'projId': 0})
 
 
 
@@ -59,9 +59,15 @@ class upload:
         return render.index("upload", render.uploadForm())
 
     def POST(self):
+        if session["projId"] == 0:
+            with db.transaction():
+                projId = db.insert('projects')
+                session.projId = projId
+        session.projectID = db.select
+
         x = web.input(file={})
 
-        folder = 'projects/project-' + str(projId) + '/'
+        folder = 'projects/project-' + str(session.projId) + '/'
         fileName = folder + 'src/' + x['file'].filename
 
         mkdir(folder)
@@ -92,7 +98,7 @@ class upload:
 
 class finalize:
     def POST(self):
-        folder = 'projects/project-' + str(projId) + '/'
+        folder = 'projects/project-' + str(session.projId) + '/'
         fileName = folder + 'src/' + "main.py"
 
         subprocess.call(["sh", "Py2App.sh", folder+"src/", "main.py"])
@@ -109,11 +115,28 @@ class finalize:
 
         return "This will convert the uploaded files to an application..."
     def GET(self):
-        url = "https://objects.dreamhost.com:443/pyrocketprojects/projects/project-1/mac/app.zip"
+        url = "https://pyrocketprojects.objects.dreamhost.com/projects/project-"+str(projId)+"/mac/app.zip"
         title = "HELLO!"
         body = "Your project can be downloaded here:<br>"
         body += "<a href='" + url + "'>Mac</a>"
         return render.index(title, body)
+
+class gallery:
+    def GET(self):
+        title = "Projects"
+        projects = db.select('projects')
+        return render.index(title, render.gallery(projects))
+
+
+
+class static:
+    def GET(self, media, file):
+        try:
+            f = open(media+'/'+file, 'r')
+            return f.read()
+        except:
+            return '404' # you can send an 404 error here if you want
+
 
 class word:
     def GET(self):
@@ -123,10 +146,8 @@ class index:
     def GET(self, args):
         title = "HELLO!"
         body = "PyRocket will be re-written in this soon!<br><br><a href='/upload'>Upload Python</a>"
+        body += "<br><br><a href='/gallery'>See other awesome projects</a>"
         
-        body += "<br><br>awesome words: "
-        word = createWord()
-        body += "<a href='"+word+"'>" + word + "</a>"
         return render.index(title, body)
 
 if __name__ == "__main__":
