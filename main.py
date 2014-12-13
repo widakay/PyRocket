@@ -30,7 +30,7 @@ urls = (
 app = web.application(urls, globals())
 
 
-db = web.database(dbn='mysql', db=credentials.mysql_database, user=credentials.mysql_username, pw=credentials.mysql_password)
+db = web.database(dbn='mysql', host=credentials.mysql_host, db=credentials.mysql_database, user=credentials.mysql_username, pw=credentials.mysql_password)
 
 
 #store = web.session.DiskStore('sessions')
