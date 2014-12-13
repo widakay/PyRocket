@@ -1,0 +1,4 @@
+boto==2.34.0
+boto-rsync==0.8.1
+py2app==0.9
+python-digitalocean==1.0.8

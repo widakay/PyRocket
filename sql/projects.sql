@@ -6,5 +6,6 @@ create table projects(
 	description TEXT,
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	objectData TEXT,
+	state INT,
 	PRIMARY KEY ( id )
 );

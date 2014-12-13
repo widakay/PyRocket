@@ -1,4 +1,5 @@
 import web, random, json, os, subprocess, credentials
+
 from Project import Project
 
 
@@ -15,13 +16,15 @@ web.config.debug = False
 urls = (
 	'/upload', 'uploadRedir',
 	'/project/(.*)/upload', 'upload',
-    '/create', 'create',
+	'/create', 'create',
 	'/gallery', 'gallery',
-	'/finalize', 'finalize',
+	'/project/(.*)/finalize', 'finalize',
+	'/project/(.*)/download', 'download',
+	'/project/(.*)/download/(mac|lin|win)', 'downloadDirect',
 	'/project/(.*)', 'project',
 	'/static/(.*)', 'static',
-    '/login', 'login',
-    '/logout', 'logout',
+	'/login', 'login',
+	'/logout', 'logout',
 	'/(.*)', 'index'
 )
 app = web.application(urls, globals())
@@ -77,21 +80,46 @@ class upload:
 
 
 class finalize:
-	def POST(self):
-		project = setupSession()
+	def POST(self, id):
+		project = Project(db, id=id)
 		project.finalize()
-		raise web.seeother("/finalize")
+		raise web.seeother("/project/"+str(int(id))+"/download")
 
-	def GET(self):
-		project = setupSession()
+	def GET(self, id):
+		raise web.seeother("/project/"+str(int(id))+"/download")
+
+
+class download:
+	def GET(self, id):
+		project = Project(db, id=id)
+		title = project.name
+		body = ""
+
+		if project.state < 5:
+			body += "Project is getting processed.  Please refresh page in 10 seoncds"
+		else:
+			url = project.dlMac
+			body += "Your project can be downloaded here:<br>"
+			body += "<a href='" + url + "'>Mac</a>"
+		return render.index(title, body)
+
+
+class downloadDirect:
+	def GET(self, id, os):
+		project = Project(db, id=id)
 		url = project.dlMac
+
+		if os == "mac":
+			raise web.seeother(project.dlMac)
+		else:
+			raise web.seeother(project.url+"/download")
 		title = "HELLO!"
 		body = "Your project can be downloaded here:<br>"
 		body += "<a href='" + url + "'>Mac</a>"
 		return render.index(title, body)
 
 class gallery:
-	def GET(self):
+	def GET(self, page=0):
 		return render.index("Projects", render.gallery(db.select('projects')))
 
 
@@ -113,17 +141,21 @@ class index:
 		title = "HELLO!"
 		body += "PyRocket will be re-written in this soon!<br><br><a href='/upload'>Upload Python</a>"
 		body += "<br><br><a href='/gallery'>See other awesome projects</a>"
+		body += str(render.gallery(db.select('projects')))
 		
 		return render.index(title, body)
 
 class login:
-    def GET(self):
-        session.logged_in = True
-        raise web.seeother('/')
+	def GET(self):
+		session.logged_in = True
+		raise web.seeother('/')
 
 class logout:
-    def GET(self):
-        session.logged_in = False
-        raise web.seeother('/')
+	def GET(self):
+		session.logged_in = False
+		raise web.seeother('/')
+
+
+
 if __name__ == "__main__":
 	app.run()

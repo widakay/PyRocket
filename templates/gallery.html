@@ -2,13 +2,15 @@ $def with (projects)
 <div id="projects">
 
 $for project in projects:
-    <a href="/project/$project.id">
-    	<div class="mini-project" id="p$project.id">
-    		$project.name<br>
-    		$project.creator
-    		$project.created
-    	</div>
-    </a>
+	$if project.state > 4:
+	    <a href="/project/$project.id">
+	    	<div class="mini-project" id="p$project.id">
+	    		<img class="mini-project-image" src="https://pyrocketprojects.objects.dreamhost.com/projects/project-$project.id/img.png">
+	    		$project.name<br>
+	    		$project.creator
+	    		$project.created
+	    	</div>
+	    </a>
 <br>
 <div class="end-mini-projects">test</div>
 </div>

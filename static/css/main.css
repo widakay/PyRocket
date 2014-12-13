@@ -22,6 +22,11 @@ body {
 #projects {
     padding: 10%;
 }
+
+.mini-project-image {
+    width: 100%;
+}
+
 .mini-project {
     border: 1px solid grey;
     border-radius: 10px;

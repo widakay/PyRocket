@@ -1,9 +1,11 @@
 $def with (project)
 <div id="project">
 
-<a href="/project/$project.id"></a>
 <img class="project-image" src="$project.image">
 $project.name<br>
 Created by: $project.creator on $project.created
-
+<a href="$project.url/download">DOWNLOAD!</a>
+<a href="$project.url/download/mac">MAC</a>
+<a href="$project.url/download/lin">LINUX</a>
+<a href="$project.url/download/win">WINDOWS</a>
 </div>

@@ -3,7 +3,7 @@
 </h1>
 
 <div class="centerDiv">
-    <form action="/upload" class="dropzone dropzoneFormat resp">
+    <form action="upload" class="dropzone dropzoneFormat resp">
 		Drag or click to <span class="upload">Upload</span>
 		<br>
 		<span class="fa fa-cloud-upload resp"></span>
@@ -14,7 +14,7 @@
     </form>
 </div>
 
-<form name="codeUploader" action="/finalize" method="post" enctype="multipart/form-data" class="resp">
+<form name="codeUploader" action="finalize" method="post" enctype="multipart/form-data" class="resp">
 	<p>Select the system you want to package your code for:</p>
 	<input type="checkbox" name="os" class="fancyRadio" value="Mac" id="Mac"><label for="Mac"><span class="fa fa-apple"></span>Mac</label>
         <input type="checkbox" name="os" class="fancyRadio" value="Windows" id="Windows"><label for="Windows"><span class="fa fa-windows"></span>Windows</label>
