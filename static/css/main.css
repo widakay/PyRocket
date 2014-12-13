@@ -32,6 +32,10 @@ body {
     padding: 10px;
 }
 
+.end-mini-project {
+    clear: both;
+}
+
 .header {
     margin-left: auto;
     margin-right: auto;

@@ -1,5 +1,14 @@
 $def with (projects)
 <div id="projects">
+
 $for project in projects:
-    <div class="mini-project" id="t$project.id"><a href="/projects/$project.id">$project.name</a><br>$project.creator</div>
+    <a href="/project/$project.id">
+    	<div class="mini-project" id="p$project.id">
+    		$project.name<br>
+    		$project.creator
+    		$project.created
+    	</div>
+    </a>
+<br>
+<div class="end-mini-projects">test</div>
 </div>
